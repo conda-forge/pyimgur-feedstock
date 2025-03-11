@@ -6,25 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   # url: https://github.com/Damgaard/{{ name }}/archive/{{ version }}.tar.gz
   sha256: f776ca7f14663bd9ac14a1380db62c87ed32231d159d2d167ad1cb817dcb9144
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - requests
 
 test:
   # Currently test files are not included in source dist so only check import
+  requires:
+    - python {{ python_min }}
   imports:
     - pyimgur
 
