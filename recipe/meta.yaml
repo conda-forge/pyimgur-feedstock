@@ -1,5 +1,5 @@
 {% set name = "pyimgur" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   # url: https://github.com/Damgaard/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: aa16081e49dc21442d003fa0c2a7e54e3b664e606c37e309ffa96bce048bcf01
+  sha256: c316b8e126e36006d31656abe138669db54dd736afe2ac8e6465584c6287dd36
 
 build:
   noarch: python
